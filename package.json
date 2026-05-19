@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "dependencies": {
     "@cap-js/hana": "^2",
+    "@sap-cloud-sdk/connectivity": "^4.6.0",
+    "@sap-cloud-sdk/http-client": "^4.6.0",
+    "@sap-cloud-sdk/resilience": "^4.6.0",
     "@sap/cds": "^9",
     "@sap/xssec": "^4.13.0"
   },
@@ -16,7 +19,10 @@
   "private": true,
   "cds": {
     "requires": {
-      "destinations": true
+      "destinations": true,
+      "auth": {
+        "kind": "mocked"
+      }
     }
   }
 }
