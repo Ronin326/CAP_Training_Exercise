@@ -26,6 +26,7 @@ modules:
     requires:
       - name: Cap_Exercise-db
       - name: Cap_Exercise-destination
+      - name: Cap_Exercise-auth
 
   - name: Cap_Exercise-db-deployer
     type: hdb
@@ -46,3 +47,16 @@ resources:
     parameters:
       service: destination
       service-plan: lite
+  - name: Cap_Exercise-auth
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: xsuaa
+      service-plan: application
+      path: ./xs-security.json
+      config:
+        xsappname: Cap_Exercise-${org}-${space}
+        tenant-mode: dedicated
+        oauth2-configuration:
+          credential-types:
+            - "binding-secret"
+            - "x509"

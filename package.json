@@ -7,7 +7,7 @@
     "@sap-cloud-sdk/http-client": "^4.6.0",
     "@sap-cloud-sdk/resilience": "^4.6.0",
     "@sap/cds": "^9",
-    "@sap/xssec": "^4.13.0"
+    "@sap/xssec": "^4"
   },
   "devDependencies": {
     "@cap-js/sqlite": "^2",
@@ -21,7 +21,12 @@
     "requires": {
       "destinations": true,
       "auth": {
-        "kind": "mocked"
+        "kind": "xsuaa"
+      },
+      "[production]": {
+        "auth": {
+          "kind": "xsuaa"
+        }
       }
     }
   }
